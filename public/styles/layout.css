@@ -23,3 +23,14 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+/* Souce Sans Pro font should be applied to the body */
+body {
+  font-family: "Source Sans Pro", "sans-serif";
+}
+
+/* Bungee font - applied to the Tweeter logo in the nav */
+nav {
+  font-family: "Bungee", sans-serif;
+}
+
+/* Browser degrade to sans-serif-- if it cannot load the correct font */

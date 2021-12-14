@@ -28,9 +28,6 @@ body {
   font-family: "Source Sans Pro", "sans-serif";
 }
 
-/* Bungee font - applied to the Tweeter logo in the nav */
-nav {
-  font-family: "Bungee", sans-serif;
-}
+
 
 /* Browser degrade to sans-serif-- if it cannot load the correct font */

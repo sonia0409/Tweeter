@@ -22,9 +22,11 @@ body {
 }
 /* style for the main element */
 .container {
+  /* width: 90% */
   margin-right:5%;
   margin-left:5%;
   display: flex;
   justify-content:center;
-
+  flex-direction: column;
+  gap:20px
 }

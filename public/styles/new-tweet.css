@@ -1,0 +1,61 @@
+ 
+ .new-tweet {
+  width: 100%
+
+ }
+
+ #tweet-text{
+  width: 100%;
+  border-bottom: 5px solid black;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background: transparent;
+  display: flex;
+
+  
+}
+#tweet-text:focus {
+  outline:0;
+}
+  
+
+.button-counter {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bungee", sans-serif;
+}
+
+.button-counter button{
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
+
+/* style tweet-container or the new tweets */
+
+.tweet-container {
+  border: 5px solid black;
+  padding: 50px 20px;
+}
+.post-days{
+  display: flex;
+  justify-content: space-between;
+}
+/* //hover over the box and icons
+
+//tweet-container- mouse -highlight the box.
+const $tweetContainer = $("tweet-container") */
+
+.tweet-container:hover {
+  box-shadow: 10px 10px;
+}
+
+#flag:hover {
+  color:blue;
+}
+#retweet:hover {
+  color:blue;
+}
+#heart:hover {
+  color:blue;
+}

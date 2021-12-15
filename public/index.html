@@ -18,12 +18,14 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <!-- style sheet link for the new-tweet -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+    <!-- App JS -->
+    
+    
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <!-- timeago -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
   </head>
   
   
@@ -52,7 +54,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
+        <form id="tweet-form" method="POST" action="/tweets">
         <div class="text-area">
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
@@ -63,30 +65,13 @@
           </div>
         </form>
       </section>
-      <section class="tweet-container" >
-        <article id="tweets-container">
-          <div class="avtar-name">
-            <div>
-            <img src="/images/zSKZHMh8mXU.png"> 
-            <span class="name">Name</span> 
-          </div> 
-            <span class="handle">@handle</span>
-        </div>
-          <div>
-            <textarea name="message" id="tweet-text">"What are you humming about?"</textarea>
-          </div>
-          <div class="post-days">
-            <span>10 days ago</span>
-            <div class=icons>
-            <i id="flag" class="fa-solid fa-flag"></i>       
-            <i id="retweet" class="fa-solid fa-retweet"></i>
-            <i id="heart" class="fa-solid fa-heart"></i>
-          </div>
-          </div>
-        </article>
+      <section class="tweet-container" id="tweets-container">
+        
       </section>
     </main>
   </body>
    <!-- counter JS -->
    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+   <!-- client.js -->
+   <script type="text/javascript" src="/scripts/client.js"></script>
 </html>

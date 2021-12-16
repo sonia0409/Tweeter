@@ -71,13 +71,20 @@ $('#tweet-form').on('submit', function (event) {
 
   } else if (charRemaining === '140') {
     //data should not be null or ""- error message
+    $('#error-message').replaceWith("tweet content is not present");
+    $('.error-section').slideDown(200).css('display','block');
+    setTimeout(() => {
+      $('.error-section').slideUp(200);
+    }, 600)
     
-    errorAlert("tweet content is not present");
     
   } else {
-    errorAlert("tweet content is too long");
+    $('#error-message').replaceWith("tweet content is too long");
+    $('.error-section').slideDown(200).css('display','block');
+    setTimeout(() => {
+      $('.error-section').slideUp(200);
+    }, 600)
   }
-
 })
 
 
@@ -101,31 +108,16 @@ $(document).ready(() => {
   $(function () {
     const $button = $('#post-tweet');
     $button.on('click', function () {
-      setTimeout(() => location.reload(), 1000);
+      setTimeout(() => location.reload(), 200);
     });
 
   })
 })
 
 
-//add text validation using jQuery- event handler;
-  
-
-const errorAlert = function(error){
-//add new element to new-tweet class: the tag should contain error message,
-const $errorMessage = $(`<div class="error-alert">
-<i class="fa-solid fa-circle-exclamation"></i>
-<span> &nbsp; ${error} &nbsp; </span>
-<i class="fa-solid fa-circle-exclamation"></i>
-</div>`)
-    //if validation fails the error message pops up
-    //otherwise should remain hidden.
-   $('.error').replaceWith($errorMessage);
-}
 
 //tried slideDown
-/* $('#post-tweet').on("click", () => {
-  $(".error").slideDown("slow", () => {
-    
-  })
-}) */
+
+$('#post-tweet').on("click", () => {
+  $(".error").slideDown(200)
+})

@@ -37,7 +37,7 @@ const createTweetElement = function(tweets) {
 
 
 //function to loop over the data
-const renderTweets = function(tweets) {
+const renderTweets = function (tweets) {
   // loops through tweets
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
@@ -70,17 +70,19 @@ $('#tweet-form').on('submit', function (event) {
     });
 
   } else if (charRemaining === '140') {
-    //data should not be null or ""- alert
-    alert("tweet content is not present");
+    //data should not be null or ""- error message
+    
+    errorAlert("tweet content is not present");
+    
   } else {
-    alert("tweet content is too long");
+    errorAlert("tweet content is too long");
   }
 
 })
 
 
 //trigger event handler on the submit button
-const loadTweets = function(){
+const loadTweets = function () {
   $.ajax({
     url: "http://localhost:8080/tweets",
     type: "GET",
@@ -93,18 +95,37 @@ const loadTweets = function(){
 }
 
 $(document).ready(() => {
-  
+
   loadTweets();
 
-  $(function() {
+  $(function () {
     const $button = $('#post-tweet');
     $button.on('click', function () {
-      setTimeout(() => location.reload(), 100);
+      setTimeout(() => location.reload(), 1000);
     });
 
   })
 })
 
 
+//add text validation using jQuery- event handler;
+  
 
+const errorAlert = function(error){
+//add new element to new-tweet class: the tag should contain error message,
+const $errorMessage = $(`<div class="error-alert">
+<i class="fa-solid fa-circle-exclamation"></i>
+<span> &nbsp; ${error} &nbsp; </span>
+<i class="fa-solid fa-circle-exclamation"></i>
+</div>`)
+    //if validation fails the error message pops up
+    //otherwise should remain hidden.
+   $('.error').replaceWith($errorMessage);
+}
 
+//tried slideDown
+/* $('#post-tweet').on("click", () => {
+  $(".error").slideDown("slow", () => {
+    
+  })
+}) */

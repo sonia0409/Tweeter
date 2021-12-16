@@ -4,14 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Test / driver code (temporary). Eventually will get this from the server.
-
-//function to create new artice of the given data;
+//escape function to prevent cross site scripting
 const escapeText = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
+//function to create new artice of the given data;
 const createTweetElement = function(tweets) {
   let $tweet = $(`<article class="tweet">
  <div class="avtar-name">

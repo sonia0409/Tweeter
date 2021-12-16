@@ -50,60 +50,40 @@ const renderTweets = function (tweets) {
 
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
-
-    const input = $(this).serialize();
-    console.log(input)
-    const charCount = $(".counter").val();
+    const charRemaining = $(".counter").val();
+    if(charRemaining >= 0 && charRemaining < 140){
+      const input = $(this).serialize(); 
+      $.ajax({
+        url: "http://localhost:8080/tweets",
+        type: "POST",
+        data:input
+      }).then((results) => {
+        //validate maximum length -alert;
+        console.log(results);
+      }).catch((err) => {
+      });
+  
+    } else if(charRemaining === '140') {
+      //data should not be null or ""- alert
+      alert("tweet content is not present");      
+    } else {
+      alert("tweet content is too long");
+    }
     
-    $.ajax({
-      url: "http://localhost:8080/tweets",
-      type: "POST",
-      data:input
-    }).then((results) => {
-      //validate maximum length -alert;
-      if(charCount < 0){
-        alert("tweet content is too long");
-        event.preventDefault();
-      }
-    }).catch((err) => {
-        //data should not be null or ""- alert
-        alert("tweet content is not present");
-        event.preventDefault();
-    })
-
   })
 
 
 //trigger event handler on the submit button
 
-
-
 $(document).ready( () => {
     $.ajax({
       url: "http://localhost:8080/tweets",
       type: "GET",
-    }).done((results) => {
-      //console.log(results);
+    }).then((results) => {
       renderTweets(results.reverse())
     })
-    /* .fail((err) => {
-      console.log(`Error: ${err}`)
-    })
-    .always(() => {
-      console.log("request completed")
-    }) */
+  
   })
 
-  /* $(document).ready( () => {
-    const $loadTweets = function(){
-      $.ajax({
-        url: "http://localhost:8080/tweets",
-        method: "GET",
-      }).this((results) => {
-        const tweets = renderTweets(results);
-        console.log('Sucess',tweets);
-      })
-      }
-      console.log($loadTweets())
-  }) */
+
   

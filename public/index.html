@@ -45,7 +45,7 @@
       </div>
       <br>
       <div>
-          <h2 class="name">Your Name</h2>
+          <h2 class="name">Sonia Singh</h2>
       </div>
   </header>    
     
@@ -53,14 +53,21 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <!-- Error section -->
+        <div class="error-section">
+          <div class="error-alert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="error-message"> &nbsp; Error!! &nbsp; </span>
+            <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+          </div>
         <form id="tweet-form" method="POST" action="/tweets">
         <div class="text-area">
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         </div>
           <div class="button-counter">
-            <button type="submit">Tweet</button>
+            <button type="submit" id="post-tweet">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>

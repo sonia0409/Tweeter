@@ -7,6 +7,11 @@
 // Test / driver code (temporary). Eventually will get this from the server.
 
 //function to create new artice of the given data;
+const escapeText = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 const createTweetElement = function(tweets) {
   let $tweet = $(`<article class="tweet">
  <div class="avtar-name">
@@ -17,7 +22,7 @@ const createTweetElement = function(tweets) {
    <span class="handle">${tweets.user.handle}</span>
 </div>
  <div>
-   <textarea name="message" id="tweet-text">${tweets.content.text}</textarea>
+   <div name="message" id="tweet-text">${escapeText(tweets.content.text)}</div>
  </div>
  <footer class="post-days">
    <span>${timeago.format(tweets.created_at)}</span> 
@@ -30,6 +35,7 @@ const createTweetElement = function(tweets) {
 </article>`);
   return $tweet;
 }
+
 
 //function to loop over the data
 const renderTweets = function(tweets) {
@@ -75,8 +81,7 @@ $('#tweet-form').on('submit', function (event) {
 
 
 //trigger event handler on the submit button
-
-$(document).ready(() => {
+const loadTweets = function(){
   $.ajax({
     url: "http://localhost:8080/tweets",
     type: "GET",
@@ -86,6 +91,11 @@ $(document).ready(() => {
   }).catch((err) => {
     console.log(`Error: ${err.message}`)
   });
+}
+
+$(document).ready(() => {
+  
+  loadTweets();
 
   $(function() {
     const $button = $('#post-tweet');

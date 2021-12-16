@@ -32,7 +32,7 @@ const createTweetElement = function(tweets) {
 }
 
 //function to loop over the data
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   // loops through tweets
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
@@ -48,42 +48,54 @@ const renderTweets = function (tweets) {
 
 //fetch the form submit button
 
-  $('#tweet-form').on('submit', function(event) {
-    event.preventDefault();
-    const charRemaining = $(".counter").val();
-    if(charRemaining >= 0 && charRemaining < 140){
-      const input = $(this).serialize(); 
-      $.ajax({
-        url: "http://localhost:8080/tweets",
-        type: "POST",
-        data:input
-      }).then((results) => {
-        //validate maximum length -alert;
-        console.log(results);
-      }).catch((err) => {
-      });
-  
-    } else if(charRemaining === '140') {
-      //data should not be null or ""- alert
-      alert("tweet content is not present");      
-    } else {
-      alert("tweet content is too long");
-    }
-    
-  })
+$('#tweet-form').on('submit', function (event) {
+  event.preventDefault();
+  const charRemaining = $(".counter").val();
+  if (charRemaining >= 0 && charRemaining < 140) {
+    const input = $(this).serialize();
+    $.ajax({
+      url: "http://localhost:8080/tweets",
+      type: "POST",
+      data: input
+    }).then((results) => {
+      //validate maximum length -alert;
+      console.log(results);
+    }).catch((err) => {
+      console.log(`Error: ${err.message}`)
+    });
+
+  } else if (charRemaining === '140') {
+    //data should not be null or ""- alert
+    alert("tweet content is not present");
+  } else {
+    alert("tweet content is too long");
+  }
+
+})
 
 
 //trigger event handler on the submit button
 
-$(document).ready( () => {
-    $.ajax({
-      url: "http://localhost:8080/tweets",
-      type: "GET",
-    }).then((results) => {
-      renderTweets(results.reverse())
-    })
-  
+$(document).ready(() => {
+  $.ajax({
+    url: "http://localhost:8080/tweets",
+    type: "GET",
+  }).then((results) => {
+    renderTweets(results.reverse())
+    //console.log(results);
+  }).catch((err) => {
+    console.log(`Error: ${err.message}`)
+  });
+
+  $(function() {
+    const $button = $('#post-tweet');
+    $button.on('click', function () {
+      setTimeout(() => location.reload(), 100);
+    });
+
   })
+})
 
 
-  
+
+

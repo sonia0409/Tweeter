@@ -1,8 +1,4 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
+/* styling required for body and an outer container is kept together */
 html {
   box-sizing: border-box;
 }
@@ -22,7 +18,6 @@ body {
 }
 /* style for the main element */
 .container {
-  /* width: 90% */
   margin-right:5%;
   margin-left:5%;
   display: flex;

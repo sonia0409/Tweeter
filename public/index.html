@@ -3,12 +3,10 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <!--links for bungee and Source Sans Pro added from google fonts-->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" type="text/css"/>
     <!-- link to the angled double arraow -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css"/>
@@ -16,6 +14,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/media.css" type="text/css" />
     <!-- style sheet link for the new-tweet -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <!-- App JS -->
@@ -31,7 +30,7 @@
   
   <body>
     <!-- Top nav bar (fixed) -->
-    
+
     <nav>
       <span class="tweeter">tweeter</span>
     <div class="arrow">
@@ -39,16 +38,15 @@
       <i class="fa-solid fa-angles-down"></i>
     </div>
     </nav>
+    <div class="header-main">
     <header class="header">
       <div class="avtar">
           <img src="/images/profile-hex.png"> 
       </div>
-      <br>
       <div>
           <h2 class="name">Sonia Singh</h2>
       </div>
   </header>    
-    
 
     <!-- Page-specific (main) content here -->
     <main class="container">
@@ -76,6 +74,7 @@
         
       </section>
     </main>
+  </div>
   </body>
    <!-- counter JS -->
    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>

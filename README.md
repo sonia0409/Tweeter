@@ -8,6 +8,3 @@ Tweeter is a simple, single-page Twitter clone,however it demonstrates the both 
 - AJAX front-end skills, 
 - and their Node, Express back-end skills.
 
-## Dependencies
-- Express
-- Node 5.10.x or above

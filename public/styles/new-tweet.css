@@ -12,6 +12,7 @@
   border-right: 0;
   background: transparent;
   display: flex;  
+  margin-top: 30px;
 }
 #tweet-text:focus {
   outline:0;
@@ -27,6 +28,7 @@
 .button-counter button{
   background-color: #4056A1;
   color: #FFFFFF;
+  margin-top: 10px;
 }
 
 /* style tweet-container or the new tweets */
@@ -45,7 +47,7 @@
 //tweet-container- mouse -highlight the box.
 const $tweetContainer = $("tweet-container") */
 
-.tweet-container:hover {
+.tweet:hover {
   box-shadow: 10px 10px;
 }
 

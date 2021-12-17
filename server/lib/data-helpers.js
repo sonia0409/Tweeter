@@ -13,7 +13,7 @@ module.exports = function makeDataHelpers(db) {
         db.tweets.push(newTweet);
         callback(null, true);
       });
-    },
+    }, 
 
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {

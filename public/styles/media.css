@@ -1,0 +1,30 @@
+/* tablet screens */
+@media screen and (min-width: 768px) {
+nav {
+  /* background-color: transparent; */
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+  background-color:#ab9c37;
+}
+.top-container {
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+  background-color:#ab9c37;
+}
+}
+/* desktop */
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;;
+   }
+   .header-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:60px
+   }
+   .header{
+     width:50%;
+     margin-left:5vw;
+     margin-top: inherit;
+   }
+}
+

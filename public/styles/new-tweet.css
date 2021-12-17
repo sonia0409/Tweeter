@@ -65,10 +65,6 @@ const $tweetContainer = $("tweet-container") */
   justify-content: space-between;
   flex-direction: row;
 }
-/* .image-style{
-  display: flex;
- 
-} */
 
 .user-avatar{
   margin-right: 0.5em;

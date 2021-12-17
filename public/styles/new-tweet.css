@@ -2,7 +2,7 @@
 
 /* new-tweet container */
  .new-tweet {
-  width: 100%
+  width: 100%;
  }
 /* tweet textarea */
  #tweet-text{

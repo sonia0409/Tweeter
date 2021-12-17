@@ -1,9 +1,10 @@
- 
+ /* All styling related to new tweet is here */
+
+/* new-tweet container */
  .new-tweet {
   width: 100%
-
  }
-
+/* tweet textarea */
  #tweet-text{
   width: 100%;
   border-bottom: 5px solid black;
@@ -13,12 +14,14 @@
   background: transparent;
   display: flex;  
   margin-top: 30px;
+  padding: 10px;
 }
+/* keep cursor focued in tweet text area */
 #tweet-text:focus {
   outline:0;
 }
-  
 
+/* button-counter container */
 .button-counter {
   display: flex;
   justify-content: space-between;
@@ -35,17 +38,13 @@
 
 .tweet {
   border: 5px solid black;
-  padding: 50px 20px;
+  padding: 30px 20px;
   margin-bottom: 5px;
 }
 .post-days{
   display: flex;
   justify-content: space-between;
 }
-/* //hover over the box and icons
-
-//tweet-container- mouse -highlight the box.
-const $tweetContainer = $("tweet-container") */
 
 .tweet:hover {
   box-shadow: 10px 10px;
@@ -60,19 +59,17 @@ const $tweetContainer = $("tweet-container") */
 #heart:hover {
   color:blue;
 }
+
+/* Avater container for tweets posted */
 .avtar-name {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
-.user-avatar{
-  margin-right: 0.5em;
-}
-
-.user-name{
-  margin-top: 1em;
-  padding-top: 5px;
+#image-style {
+  display: flex;
+  align-items: center;
 }
 
 /* error message */

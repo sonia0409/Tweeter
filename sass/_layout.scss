@@ -1,0 +1,27 @@
+/* styling required for body and an outer container is kept together */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: "Source Sans Pro", "sans-serif";
+}
+/* style for the main element */
+main.container {
+  margin-right:5%;
+  margin-left:5%;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  gap:20px
+}

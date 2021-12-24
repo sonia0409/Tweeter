@@ -1,0 +1,31 @@
+@import '_nav';
+@import '_variables';
+/* tablet screens */
+@media only screen and (min-width: 768px) {
+  nav {
+    @include navbar($background-nav-image,$background-nav-color);
+  }
+}
+/* desktop  screen*/
+@media only screen and (min-width: 1024px) {
+  body{
+    & nav {
+      @include navbar($background-nav-image,#4056A1);
+     }
+    & .header-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:60px;
+
+    & .header{
+      width:40%;
+      margin-left:1vw;
+      margin-top: inherit;
+    }
+  }
+    
+  }
+ 
+}
+

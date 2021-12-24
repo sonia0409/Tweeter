@@ -1,0 +1,46 @@
+ /* styling for all the nav tag is in this file */
+ /* variables */
+@import '_variables';
+
+@mixin navbar($background-nav-image,$background-nav-color) {
+  width: 100%;
+  height: 120px;
+  background-image:$background-nav-image;
+  background-color:$background-nav-color;
+  display: flex;  
+  justify-content: space-between;
+  padding: 1.5em;
+  align-items: center; 
+  position: sticky;
+  top:0;
+}
+ /* nav tag */
+
+ nav{
+   @include navbar($background-nav-image,$background-nav-color);
+ /* tweeter letter */
+  & .tweeter {
+    color: $nav-font-color;
+    font-family: "Bungee", sans-serif;
+  }
+  /* "Write a new tweet" sentence */
+  & .write-tweet {
+    color: $nav-font-color;
+    font-family: "Source Sans Pro", "sans-serif";
+    display: flex;
+    justify-content: right;
+  }
+  /* double arrow icon */
+   i {
+    align-items: center; 
+    color: red;
+  }
+  /* arrow conatiner */
+  & .arrow{
+    justify-content: center;
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+  }
+}
+

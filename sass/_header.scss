@@ -1,0 +1,15 @@
+@import '_variables';
+
+header {
+  height: 400px;
+  width: 100%;
+  background-image: $background-nav-image;
+  background-color:$background-nav-color;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+  & .name {
+    color: $nav-font-color;
+  }
+}

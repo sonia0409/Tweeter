@@ -1,0 +1,98 @@
+ /* All styling related to new tweet is here */
+@import '_variables';
+
+@mixin tweet{
+  width: 100%;
+  border-bottom: 5px solid black;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background: transparent;
+  display: flex;  
+  margin-top: 30px;
+  padding: 10px;
+  color: black;
+}
+
+/* new-tweet container */
+
+main {
+  section{
+    width: 100%;
+    /* tweet textarea */
+    & #tweet-text{
+     @include tweet();     
+    }
+    /* keep cursor focued in tweet text area */
+    & #tweet-text:focus {
+      outline:0;
+    }
+    &.new-tweet {
+      & .button-counter {
+        /* button-counter container */
+        display: flex;
+        justify-content: space-between;
+        font-family: "Bungee", sans-serif;
+        button{
+          background-color: #4056A1;
+          color: $nav-font-color;
+          margin-top: 10px;
+        }
+      }      
+      & .error-alert {
+        /* error message */
+        color: red;
+        padding: 10px;
+        border: 3px red solid;
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+      }
+
+      & .error-section {
+        display: none;
+      }
+    }
+    /* style tweet-container or the new tweets */
+    &.tweet-container {
+      & .tweet {
+        border: 5px solid black;
+        padding: 30px 20px;
+        margin-bottom: 5px;
+      }
+      & .post-days{
+        display: flex;
+        justify-content: space-between;
+      }
+
+      & .tweet:hover {
+        box-shadow: 10px 10px;
+      }
+
+      & #flag:hover, #retweet:hover, #heart:hover {
+        color:blue;
+      }
+      & .tweet {
+        .avtar-name {
+        /* Avater container for tweets posted */
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+        }
+
+        #image-style {
+          display: flex;
+          align-items: center;
+        }
+
+
+      }
+    }
+  }
+}
+ 
+
+
+
+
+

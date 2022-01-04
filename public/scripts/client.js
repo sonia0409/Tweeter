@@ -1,6 +1,7 @@
 //FThis file provide functionality to POST and GET requests- using ajax jQuery
 
 //escape function to prevent cross site scripting
+
 const escapeText = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -31,7 +32,7 @@ const createTweetElement = function(tweets) {
   return $tweet;
 };
 
-
+$(document).ready(() => {
 //function to loop over the data
 const renderTweets = function(tweets) {
   // loops through tweets
@@ -39,7 +40,7 @@ const renderTweets = function(tweets) {
     // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
-    $('.tweet-container').append($tweet);
+    $('.tweet-container').prepend($tweet);
   }
 };
 
@@ -50,12 +51,14 @@ $('#tweet-form').on('submit', function(event) {
   if (charRemaining >= 0 && charRemaining < 140) {
     const input = $(this).serialize();
     $.ajax({
-      url: "http://localhost:8080/tweets",
+      url: "/tweets",
       type: "POST",
       data: input
     }).then((results) => {
       //validate maximum length -alert;
       console.log(results);
+      loadTweets();
+      $('#tweet-text').val('');
     }).catch((err) => {
       console.log(`Error: ${err.message}`);
     });
@@ -63,17 +66,16 @@ $('#tweet-form').on('submit', function(event) {
   } else if (charRemaining === '140') {
     //data should not be null or ""- error message
     $('#error-message').replaceWith("tweet content is not present");
-    $('.error-section').slideDown(200).css('display','block');
-    setTimeout(() => {
-      $('.error-section').slideUp(200);
-    }, 600);
-   
+    $('.error-section').slideDown().css('display','block');
+    $('#tweet-text').on('keypress', function () {
+      $('.error-section').slideUp();
+    })
   } else {
     $('#error-message').replaceWith("tweet content is too long");
-    $('.error-section').slideDown(200).css('display','block');
-    setTimeout(() => {
-      $('.error-section').slideUp(200);
-    }, 800);
+    $('.error-section').slideDown().css('display','block');
+    $('#tweet-text').on('keydown', function () {
+      $('.error-section').slideUp();
+    })
   }
 });
 
@@ -81,23 +83,16 @@ $('#tweet-form').on('submit', function(event) {
 //trigger event handler on the submit button
 const loadTweets = function() {
   $.ajax({
-    url: "http://localhost:8080/tweets",
+    url: "/tweets",
     type: "GET",
   }).then((results) => {
-    renderTweets(results.reverse());
+    renderTweets(results);
   }).catch((err) => {
     console.log(`Error: ${err.message}`);
   });
 };
 
-$(document).ready(() => {
+
   loadTweets();
-//function to reload the page once tweet button pressed.
-  $(function () {
-    const $button = $('#post-tweet');
-    $button.on('click', function () {
-      setTimeout(() => location.reload(), 1500);
-    });
-  });
 });
 

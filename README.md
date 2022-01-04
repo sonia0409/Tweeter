@@ -22,5 +22,5 @@ Tweeter is a simple, single-page Twitter clone,however it demonstrates the both 
 - "md5": "^2.1.0",
 
 ## Screenshots
-!["Screenshot of tweeter profile"] (https://github.com/sonia0409/tweeter/blob/master/docs/tweeter-profile.png)
-!["Screenshot of tweets"] (https://github.com/sonia0409/tweeter/blob/master/docs/tweets.png)
+- !["Screenshot of tweeter profile"] (https://github.com/sonia0409/tweeter/blob/master/docs/tweeter-profile.png)
+- !["Screenshot of tweets"] (https://github.com/sonia0409/tweeter/blob/master/docs/tweets.png)

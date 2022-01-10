@@ -36,6 +36,7 @@ $(document).ready(() => {
 //function to loop over the data
 const renderTweets = function(tweets) {
   // loops through tweets
+  $('.tweet-container').empty()
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweet);
@@ -56,9 +57,9 @@ $('#tweet-form').on('submit', function(event) {
       data: input
     }).then((results) => {
       //validate maximum length -alert;
-      console.log(results);
       loadTweets();
       $('#tweet-text').val('');
+      $(".counter").val('140')
     }).catch((err) => {
       console.log(`Error: ${err.message}`);
     });
@@ -91,8 +92,6 @@ const loadTweets = function() {
     console.log(`Error: ${err.message}`);
   });
 };
-
-
   loadTweets();
 });
 
